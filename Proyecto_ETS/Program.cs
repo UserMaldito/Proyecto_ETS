@@ -13,13 +13,12 @@ namespace Proyecto_ETS
 			//Calcula la  edad - Calcula los días - .............
 
 			//Cool!
+
 			DateTime date1 = new DateTime(2000, 12, 14);
 			int x = date1.DayOfYear;
+			int y = 0;
 		} 
 
-
-
-
-
+		
 	}
 }
