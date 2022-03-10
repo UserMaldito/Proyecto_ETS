@@ -10,8 +10,16 @@ namespace Proyecto_ETS
 	{
 		static void Main(string[] args)
 		{
-			//Cool!
+			//Calcula la  edad - Calcula los días - .............
 
-		}
+			//Cool!
+			DateTime date1 = new DateTime(2000, 12, 14);
+			int x = date1.DayOfYear;
+		} 
+
+
+
+
+
 	}
 }
