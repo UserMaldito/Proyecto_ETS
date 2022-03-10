@@ -8,5 +8,7 @@ namespace Proyecto_ETS
 {
 	class Datos
 	{
+		
+
 	}
 }
