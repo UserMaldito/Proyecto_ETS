@@ -16,7 +16,7 @@ namespace Proyecto_ETS
 
 			DateTime date1 = new DateTime(2000, 12, 14);
 			int x = date1.DayOfYear;
-			int y = 12;
+			int y = 120;
 		} 
 
 		
