@@ -8,5 +8,6 @@ namespace Proyecto_ETS
 {
 	class Calculo
 	{
+		//Comentario
 	}
 }
