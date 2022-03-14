@@ -15,7 +15,7 @@ namespace Proyecto_ETS
 			int[] auxilio = Calculo.Edad(primeraFecha, segundaFecha);
 
 
-
+			int x = 0;
 
 		}
 
