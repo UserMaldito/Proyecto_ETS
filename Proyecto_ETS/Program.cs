@@ -10,13 +10,13 @@ namespace Proyecto_ETS
 	{
 		static void Main(string[] args)
 		{
-			//Calcula la  edad - Calcula los días - .............
+			DateTime primeraFecha = new DateTime(2018, 06, 01);
+			DateTime segundaFecha = new DateTime(2022, 03, 13);
+			int[] auxilio = Calculo.Edad(primeraFecha, segundaFecha);
 
-			//Cool!
 
-			DateTime date1 = new DateTime(2000, 12, 14);
-			int x = date1.DayOfYear;
-			int y = 1200;
+			int x = 0;
+
 		}
 
 		/*
