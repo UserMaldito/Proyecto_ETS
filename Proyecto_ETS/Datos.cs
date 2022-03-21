@@ -40,7 +40,7 @@ namespace Proyecto_ETS
                 Console.WriteLine("Introduzca el año a tratar (en número)");
                 if (Int32.TryParse(Console.ReadLine(), out ano))
                 {
-                    if (ano >= 0)
+                    if (ano > 0)
                     {
                         if (ano % 4 == 0 && ano % 100 != 0 || ano % 400 == 0)
                         {
