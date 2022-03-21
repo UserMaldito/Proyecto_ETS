@@ -12,9 +12,10 @@ namespace Proyecto_ETS
 		{
 			DateTime primeraFecha = new DateTime(2018, 06, 01);
 			DateTime segundaFecha = new DateTime(2022, 03, 13);
-			int[] auxilio = Calculo.Edad(primeraFecha, segundaFecha);
+			int diaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha, segundaFecha);
+			int yearDiff = Calculo.ObtenerAnioDiferencia(primeraFecha, segundaFecha);
 
-
+		
 			int x = 0;
 
 		}
@@ -25,8 +26,8 @@ namespace Proyecto_ETS
 			 * Lea dos fechas 
 			 * Valide las fechas según su formato (1)
 			 * Presente en pantalla:
-			 * La edad en años correspondiente a cada fecha para la fecha actual, en años y en días.
-			 * La diferencia entre las dos fechas, en años y en días. (2)
+			 * X La edad en años correspondiente a cada fecha para la fecha actual, en años y en días.
+			 * X La diferencia entre las dos fechas, en años y en días. (2)
 		 
 		 * Análisis del proyecto. Hay que tener en cuenta las especificaciones del proyecto:
 			 * Utilizaremos el calendario occidental (no el árabe, o el chino)
