@@ -12,8 +12,8 @@ namespace Proyecto_ETS
 		{
 			DateTime primeraFecha = new DateTime(2018, 06, 01);
 			DateTime segundaFecha = new DateTime(2022, 03, 13);
-			int diaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha, segundaFecha);
-			int yearDiff = Calculo.ObtenerAnioDiferencia(primeraFecha, segundaFecha);
+			int diaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha.Day, segundaFecha.Day);
+			int yearDiff = Calculo.ObtenerAnioDiferencia(primeraFecha.Year, segundaFecha.Year);
 
 		
 			int x = 0;
