@@ -10,13 +10,26 @@ namespace Proyecto_ETS
 	{
 		static void Main(string[] args)
 		{
-			DateTime primeraFecha = new DateTime(2018, 06, 01);
-			DateTime segundaFecha = new DateTime(2022, 03, 13);
-			int diaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha.Day, segundaFecha.Day);
-			int yearDiff = Calculo.ObtenerAnioDiferencia(primeraFecha.Year, segundaFecha.Year);
+			DateTime primeraFecha = new DateTime(2012, 01, 01);
+			DateTime segundaFecha = new DateTime(2013, 01, 01);
+			DateTime fechaActual = DateTime.Today;
 
-		
-			int x = 0;
+			TimeSpan prueba = segundaFecha.Subtract(primeraFecha);
+			int dias =  prueba.Days;
+
+
+			
+			//Calculo de la Primera Fecha
+			//int primerDiaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha.Day, segundaFecha.Day);
+			//int primerAnoDiff = Calculo.ObtenerAnioDiferencia(primeraFecha.Year, segundaFecha.Year);
+
+			////Calculo de la Segunda Fecha vs Fecha Actual
+			//int segundoDiaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha.Day, fechaActual.Day);
+			//int segundoAnoDiff = Calculo.ObtenerAnioDiferencia(primeraFecha.Year, fechaActual.Year);
+
+			////Calculo de la Tercera Fecha vs Fecha Actual
+			//int tercerDiaDiff = Calculo.ObtenerDiaDiferencia(segundaFecha.Day, fechaActual.Day);
+			//int tercerAnoDiff = Calculo.ObtenerAnioDiferencia(segundaFecha.Year, fechaActual.Year);
 
 		}
 
