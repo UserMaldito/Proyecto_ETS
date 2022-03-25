@@ -46,14 +46,12 @@ namespace Proyecto_ETS
                         {
                             bisiesto = true;
                         }
+                        siguiente = true;
                     }
                     else
                     {
                         Console.WriteLine("el año no puede ser negativo o 0");
-                    }
-
-
-                    siguiente = true;
+                    }                    
                 }
                 else
                 {
@@ -108,7 +106,7 @@ namespace Proyecto_ETS
         {
             int dia;
             bool siguiente = false;
-            string errordia = "El día introducido se sale de los rangos validos";
+            string errordia = "El día introducido se sale de los rangos válidos";
             do
             {
                 Console.WriteLine("Introduzca el día a tratar");
@@ -200,7 +198,7 @@ namespace Proyecto_ETS
             int numIntrod;
             do
             {
-                Console.WriteLine("Pulse 1 para año antes de Cristo, pulse 2 para despues de cristo");
+                Console.WriteLine("Pulse 1 para año antes de Cristo, pulse 2 para despues de Cristo");
                 if (int.TryParse(Console.ReadLine(), out numIntrod))
                 {
                     if (numIntrod == 1)
@@ -208,7 +206,6 @@ namespace Proyecto_ETS
                         AC = true;
                         siguiente = true;
                     }
-
                     else
                     {
                         if (numIntrod == 2)
@@ -220,7 +217,6 @@ namespace Proyecto_ETS
                         {
                             Console.WriteLine("Ha introducido un número diferente");
                         }
-
                     }
                 }
                 else
@@ -230,6 +226,5 @@ namespace Proyecto_ETS
             } while (!siguiente);
             return AC;
         }
-
     }
 }

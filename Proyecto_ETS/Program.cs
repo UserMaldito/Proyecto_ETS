@@ -10,6 +10,20 @@ namespace Proyecto_ETS
 	{
 		static void Main(string[] args)
 		{
+			const int MAXFECHAS = 2;
+			Datos.Fechas[] newFechas= new Datos.Fechas[MAXFECHAS];
+            for (int meterFechas = 0; meterFechas < MAXFECHAS; meterFechas++)
+            {
+				newFechas[meterFechas].AC = Datos.ObtenerAC();
+				int[] fechaInt = Datos.ObtenerFecha();
+				DateTime fecha = Datos.crearDateTime(fechaInt);
+				newFechas[meterFechas].Fecha = fecha;
+			}
+
+
+
+
+
 			DateTime primeraFecha = new DateTime(2012, 01, 01);
 			DateTime segundaFecha = new DateTime(2013, 01, 01);
 			DateTime fechaActual = DateTime.Today;
