@@ -107,23 +107,22 @@ namespace Proyecto_ETS
 							anos++;
 						}
 					}
-
 				}
 			}
 			diffAnos[0] = anos;
 			diffAnos[1] = diffdays;
 			return diffAnos;
 		}
-		public static double[] CalculoDiferenciaActualFecha1(Datos.Fechas[] newFechas)
+		public static double[] CalculoDiferenciaActualFecha(Datos.Fechas newFechas)
         {
 			double[] diffActual1 = new double[2];
 			DateTime ano0 = new DateTime(0001, 01, 01);
 			DateTime fecha = DateTime.Now;
-			DateTime Actual = newFechas[0].Fecha;
+			DateTime Actual = newFechas.Fecha;
 			TimeSpan diff1 = fecha.Subtract(ano0);
 			double days1 = Math.Abs(diff1.TotalDays);
 			int Ac1 = 1;
-			if (newFechas[0].AC)
+			if (newFechas.AC)
 			{
 				Ac1 = -1;
 			}
@@ -175,69 +174,6 @@ namespace Proyecto_ETS
 			diffActual1[1] = (int)Math.Floor(diffdays);
 			return diffActual1;
 		}
-
-		public static double[] CalculoDiferenciaActualFecha2(Datos.Fechas[] newFechas)
-		{
-			double[] diffActual2 = new double[2];
-			DateTime ano0 = new DateTime(0001, 01, 01);
-			DateTime fecha = DateTime.Now;
-			DateTime Actual = newFechas[1].Fecha;
-			TimeSpan diff1 = fecha.Subtract(ano0);
-			double days1 = Math.Abs(diff1.TotalDays);
-			int Ac1 = 1;
-			if (newFechas[1].AC)
-			{
-				Ac1 = -1;
-			}
-			TimeSpan diffActual = Actual.Subtract(ano0);
-			double daysActual = Math.Abs(diffActual.TotalDays); ;
-			double diffdays = Math.Abs(days1 * Ac1 - daysActual);
-			int anos = 0;
-			if (days1 >= daysActual)
-			{
-				for (int vueltas = Actual.Year; vueltas < fecha.Year; vueltas++)
-				{
-					if (diffdays > 365)
-					{
-						if (!DateTime.IsLeapYear(vueltas))
-						{
-							diffdays -= 365;
-							anos++;
-						}
-						else
-						{
-							diffdays -= 366;
-							anos++;
-						}
-					}
-
-				}
-			}
-			if (daysActual > days1)
-			{
-				for (int vueltas = fecha.Year; vueltas < Actual.Year; vueltas++)
-				{
-					if (diffdays > 365)
-					{
-						if (!DateTime.IsLeapYear(vueltas))
-						{
-							diffdays -= 365;
-							anos++;
-						}
-						else
-						{
-							diffdays -= 366;
-							anos++;
-						}
-					}
-
-				}
-			}
-			diffActual2[0] = anos;
-			diffActual2[1] = (int)Math.Floor(diffdays);
-			return diffActual2;
-		}
-
 
 		//Calcula la edad en años correspondiente a cada fecha para la fecha actual, en años y en días.	
 	}

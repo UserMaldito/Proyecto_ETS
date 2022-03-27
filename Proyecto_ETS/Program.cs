@@ -14,20 +14,11 @@ namespace Proyecto_ETS
 			Datos.Fechas[] newFechas= new Datos.Fechas[MAXFECHAS];
 			Datos.MontarStruct(newFechas);
 			double[] diffFechas = Calculo.CalculoDiferencia(newFechas);
-			double[] diffOrigen1 = Calculo.CalculoDiferenciaActualFecha1(newFechas);
-			double[] diffOrigen2 = Calculo.CalculoDiferenciaActualFecha2(newFechas);
+			double[] diffActual1 = Calculo.CalculoDiferenciaActualFecha(newFechas[0]);
+			double[] diffActual2 = Calculo.CalculoDiferenciaActualFecha(newFechas[1]);
 			Mostrado.MostradoDiff(newFechas, diffFechas);
-			for (int mostrado = 0; mostrado < 2; mostrado++)
-            {
-                if (mostrado==0)
-                {
-					Mostrado.MostradoDiffOrigen(newFechas[mostrado], diffOrigen1);
-				}
-				if (mostrado == 1)
-				{
-					Mostrado.MostradoDiffOrigen(newFechas[mostrado], diffOrigen2);
-				}
-			}
+			Mostrado.MostradoDiffOrigen(newFechas[0], diffActual1);
+			Mostrado.MostradoDiffOrigen(newFechas[1], diffActual2);			
 			Console.ReadKey();
 
 
