@@ -34,10 +34,28 @@ namespace Proyecto_ETS
 
 			int anoMayor = fecha2.Year;
 			int anoMenor = fecha1.Year;
-			if (fecha1.Year > fecha2.Year)
+			if (newFechas[0].AC)
+			{
+				anoMayor *= -1;
+			}
+			if (newFechas[1].AC)
+			{
+				anoMenor *= -1;
+			}
+
+			if (anoMenor > anoMayor)
 			{
 				anoMayor = fecha1.Year;
 				anoMenor = fecha2.Year;
+				if (newFechas[1].AC)
+				{
+					anoMayor *= -1;
+				}
+				if (newFechas[0].AC)
+				{
+					anoMenor *= -1;
+				}
+
 			}
 
 			int anos = 0;
@@ -45,15 +63,18 @@ namespace Proyecto_ETS
 			{
 				if (diffdays > 364)
 				{
-					if (!DateTime.IsLeapYear(vueltas))
+					if (vueltas != 0)
 					{
-						diffdays -= 365;
-						anos++;
-					}
-					else
-					{
-						diffdays -= 366;
-						anos++;
+						if (!DateTime.IsLeapYear(Math.Abs(vueltas)))
+						{
+							diffdays -= 365;
+							anos++;
+						}
+						else
+						{
+							diffdays -= 366;
+							anos++;
+						}
 					}
 				}
 				if (diffdays < 0)
@@ -87,10 +108,18 @@ namespace Proyecto_ETS
 
 			int anoMayor = fecha.Year;
 			int anoMenor = newFechas.Fecha.Year;
+			if (newFechas.AC)
+			{
+				anoMenor *= -1;
+			}
 			if (newFechas.Fecha.Year > fecha.Year)
 			{
 				anoMayor = newFechas.Fecha.Year;
 				anoMenor = fecha.Year;
+				if (newFechas.AC)
+				{
+					anoMayor *= -1;
+				}
 			}
 
 			int anos = 0;
@@ -98,16 +127,23 @@ namespace Proyecto_ETS
 			{
 				if (diffdays > 364)
 				{
-					if (!DateTime.IsLeapYear(vueltas))
+					if (vueltas != 0)
 					{
-						diffdays -= 365;
-						anos++;
+						if (!DateTime.IsLeapYear(Math.Abs(vueltas)))
+						{
+							diffdays -= 365;
+							anos++;
+						}
+						else
+						{
+							diffdays -= 366;
+							anos++;
+						}
 					}
-					else
-					{
-						diffdays -= 366;
-						anos++;
-					}
+				}
+				if (diffdays < 0)
+				{
+					diffdays = 0;
 				}
 			}
 			diffActual1[0] = anos;
@@ -220,9 +256,5 @@ namespace Proyecto_ETS
 
 			return diffActual1;
 		}
-
-
-
-
 	}
 }

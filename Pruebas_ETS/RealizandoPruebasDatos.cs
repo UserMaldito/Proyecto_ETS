@@ -131,28 +131,10 @@ namespace Pruebas_ETS
 	[TestClass]
 	public class RealizandoPruebasCalculo
 	{
-		public struct Example
-		{
-			public DateTime Fecha;
-			public bool AC;
-		}
 		[TestMethod]
-		//[DataRow(2012, 1, false, true)]      //Clear	(número positivo, bisiesto)
-		//[DataRow(2011, 1, false, false)]     //Clear (número positivo, NO bisiesto)
-		//[DataRow(-2012, -1, false, false)]    //ERROR (número negativo, bisiesto)
-		//[DataRow(-2011, -1, false, false)]   //ERROR (número negativo, NO bisiesto)
-		public void ClaseDatosAnoPrueba(int numero, int resultadoEsperado, bool bisiesto, bool bisiestoEsperado)
-		{
-			Datos.Fechas example = new Datos.Fechas();
-
-			//Act
-			double[] numeroEsperado = Calculo.CalculoDiferenciaActualFechaUnitTest(example);
-
-			//Assert
-			Assert.AreEqual(resultadoEsperado, numeroEsperado);     //Comparando Número
-			Assert.AreEqual(bisiestoEsperado, bisiesto);            //Comparando Bisiesto
-		}
-
+		[DataRow(14, 12, 2000, false, 14, 12, 2065, false, 65, 0)]			//2 fechas Después de Cristo
+		[DataRow(14, 12, 1964, true, 14, 12, 2022, true, 58, 0)]			//2 fechas Después de Cristo
+		[DataRow(14, 12, 2000, true, 14, 12, 2065, false, 4064, 330)]		//1 fecha Antes y Después de Cristo
 	}
 
 }
