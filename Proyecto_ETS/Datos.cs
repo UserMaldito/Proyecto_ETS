@@ -55,6 +55,7 @@ namespace Proyecto_ETS
 					if ((ano > 0) && (ano <= 9999))
 					{
 						bisiesto = DateTime.IsLeapYear(ano);
+						siguiente = true;
 					}
 					else
 					{
@@ -191,8 +192,8 @@ namespace Proyecto_ETS
 			fecha[0] = dia;
 			fecha[1] = mes;
 			fecha[2] = ano;
-			return fecha;
 
+			return fecha;
 		}
 		/// <summary>
 		/// Convierte el array de int "fecha" en un DateTime
@@ -284,7 +285,7 @@ namespace Proyecto_ETS
 					{
 						dia = -1;
 					}
-				break;
+					break;
 
 				case 2:
 					if (bisiesto)
@@ -301,16 +302,38 @@ namespace Proyecto_ETS
 							dia = -1;
 						}
 					}
-				break;
+					break;
 				default:
 					if (!(dia >= 1 && dia <= 30))
 					{
 						dia = -1;
 					}
-				break;
+					break;
 			}
 
 			return dia;
+		}
+		public static bool ObtenerACUnitTest(ref int numIntrod)
+		{
+			bool AC = false;
+
+			if (numIntrod == 1)
+			{
+				AC = true;
+			}
+			else
+			{
+				if (numIntrod == 2)
+				{
+					AC = false;
+				}
+				else
+				{
+					numIntrod = -1;
+				}
+			}
+
+			return AC;
 		}
 
 
