@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_ETS
 {
-    class Datos
+    public class Datos
     {
         public struct Fechas
         {
@@ -49,8 +49,8 @@ namespace Proyecto_ETS
             bool siguiente = false;
             do
             {
-                Console.WriteLine("Introduzca el año a tratar (en número)");
-                if (Int32.TryParse(Console.ReadLine(), out ano))
+				Console.WriteLine("Introduzca el año a tratar (en número)");
+				if (Int32.TryParse(Console.ReadLine(), out ano))
                 {
                     if (ano > 0)
                     {

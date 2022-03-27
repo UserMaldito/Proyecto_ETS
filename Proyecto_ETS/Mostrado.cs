@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Proyecto_ETS
 {
-    class Mostrado
+    public class Mostrado
     {
         public static void MostradoDiff(Datos.Fechas[] newFechas, double[] diff)
         {

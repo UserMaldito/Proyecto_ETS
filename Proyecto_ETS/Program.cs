@@ -20,30 +20,6 @@ namespace Proyecto_ETS
 			Mostrado.MostradoDiffOrigen(newFechas[0], diffActual1);
 			Mostrado.MostradoDiffOrigen(newFechas[1], diffActual2);			
 			Console.ReadKey();
-
-
-
-			//DateTime primeraFecha = new DateTime(2012, 01, 01);
-			//DateTime segundaFecha = new DateTime(2013, 01, 01);
-			//DateTime fechaActual = DateTime.Today;
-
-			//TimeSpan prueba = segundaFecha.Subtract(primeraFecha);
-			//int dias =  prueba.Days;
-
-
-			
-			//Calculo de la Primera Fecha
-			//int primerDiaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha.Day, segundaFecha.Day);
-			//int primerAnoDiff = Calculo.ObtenerAnioDiferencia(primeraFecha.Year, segundaFecha.Year);
-
-			////Calculo de la Segunda Fecha vs Fecha Actual
-			//int segundoDiaDiff = Calculo.ObtenerDiaDiferencia(primeraFecha.Day, fechaActual.Day);
-			//int segundoAnoDiff = Calculo.ObtenerAnioDiferencia(primeraFecha.Year, fechaActual.Year);
-
-			////Calculo de la Tercera Fecha vs Fecha Actual
-			//int tercerDiaDiff = Calculo.ObtenerDiaDiferencia(segundaFecha.Day, fechaActual.Day);
-			//int tercerAnoDiff = Calculo.ObtenerAnioDiferencia(segundaFecha.Year, fechaActual.Year);
-
 		}
 
 		/*
