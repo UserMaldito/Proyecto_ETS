@@ -13,6 +13,18 @@ namespace Proyecto_ETS
             public DateTime Fecha;
             public bool AC;
         }
+        public static void MontarStruct(Datos.Fechas[] newFechas)
+        {
+            const int MAXFECHAS = 2;
+            for (int meterFechas = 0; meterFechas < MAXFECHAS; meterFechas++)
+            {
+                newFechas[meterFechas].AC = Datos.ObtenerAC();
+                int[] fechaInt = Datos.ObtenerFecha();
+                DateTime fecha = Datos.crearDateTime(fechaInt);
+                newFechas[meterFechas].Fecha = fecha;
+                Console.Clear();
+            }
+        }
         /// <summary>
         /// Función que recoge las funciones necesarias para generar un array int con una fecha válida (solo DC)
         /// </summary>
@@ -171,12 +183,12 @@ namespace Proyecto_ETS
             return dia;
         }
         /// <summary>
-        /// 
+        /// Construye un array de int para montar el Datetime
         /// </summary>
         /// <param name="ano">Int donde almacenamos el año</param>
         /// <param name="mes">Int donde se almacena el mes</param>
         /// <param name="dia">Int donde se almacena el día</param>
-        /// <returns></returns>
+        /// <returns>Array de int con los datos necesarios para generar un DateTime</returns>
         public static int[] MontarFecha(int ano, int mes, int dia)
         {
             int[] fecha = new int[3];
@@ -186,11 +198,20 @@ namespace Proyecto_ETS
             return fecha;
 
         }
+        /// <summary>
+        /// Convierte el array de int "fecha" en un DateTime
+        /// </summary>
+        /// <param name="fecha">Array de int con los datos necesarios para generar un DateTime</param>
+        /// <returns>DateTime que se almacenará en struct</returns>
         public static DateTime crearDateTime(int[] fecha)
         {
             DateTime modFecha = new DateTime(fecha[2], fecha[1], fecha[0]);
             return modFecha;
         }
+        /// <summary>
+        /// Método que pregunta al usuario si la fecha es antes o despues de cristo
+        /// </summary>
+        /// <returns>Booleano que si es true la fecha sera Antes de Cristo</returns>
         public static bool ObtenerAC()
         {
             bool siguiente = false;

@@ -12,24 +12,32 @@ namespace Proyecto_ETS
 		{
 			const int MAXFECHAS = 2;
 			Datos.Fechas[] newFechas= new Datos.Fechas[MAXFECHAS];
-            for (int meterFechas = 0; meterFechas < MAXFECHAS; meterFechas++)
+			Datos.MontarStruct(newFechas);
+			double[] diffFechas = Calculo.CalculoDiferencia(newFechas);
+			double[] diffOrigen1 = Calculo.CalculoDiferenciaActualFecha1(newFechas);
+			double[] diffOrigen2 = Calculo.CalculoDiferenciaActualFecha2(newFechas);
+			Mostrado.MostradoDiff(newFechas, diffFechas);
+			for (int mostrado = 0; mostrado < 2; mostrado++)
             {
-				newFechas[meterFechas].AC = Datos.ObtenerAC();
-				int[] fechaInt = Datos.ObtenerFecha();
-				DateTime fecha = Datos.crearDateTime(fechaInt);
-				newFechas[meterFechas].Fecha = fecha;
+                if (mostrado==0)
+                {
+					Mostrado.MostradoDiffOrigen(newFechas[mostrado], diffOrigen1);
+				}
+				if (mostrado == 1)
+				{
+					Mostrado.MostradoDiffOrigen(newFechas[mostrado], diffOrigen2);
+				}
 			}
+			Console.ReadKey();
 
 
 
+			//DateTime primeraFecha = new DateTime(2012, 01, 01);
+			//DateTime segundaFecha = new DateTime(2013, 01, 01);
+			//DateTime fechaActual = DateTime.Today;
 
-
-			DateTime primeraFecha = new DateTime(2012, 01, 01);
-			DateTime segundaFecha = new DateTime(2013, 01, 01);
-			DateTime fechaActual = DateTime.Today;
-
-			TimeSpan prueba = segundaFecha.Subtract(primeraFecha);
-			int dias =  prueba.Days;
+			//TimeSpan prueba = segundaFecha.Subtract(primeraFecha);
+			//int dias =  prueba.Days;
 
 
 			
