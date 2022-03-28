@@ -112,7 +112,7 @@ namespace Proyecto_ETS
 			{
 				anoMenor *= -1;
 			}
-			if (newFechas.Fecha.Year > fecha.Year)
+			if (anoMayor < anoMenor)
 			{
 				anoMayor = newFechas.Fecha.Year;
 				anoMenor = fecha.Year;
@@ -162,14 +162,14 @@ namespace Proyecto_ETS
 			DateTime fecha2 = newFechas[1].Fecha;
 			TimeSpan diff1 = fecha1.Subtract(ano0);
 
-			double days1 = Math.Abs(diff1.TotalDays);
+			double days1 = Math.Abs(diff1.Days);
 			int Ac1 = 1;
 			if (newFechas[0].AC)
 			{
 				Ac1 = -1;
 			}
 			TimeSpan diff2 = fecha2.Subtract(ano0);
-			double days2 = Math.Abs(diff2.TotalDays);
+			double days2 = Math.Abs(diff2.Days);
 			int Ac2 = 1;
 			if (newFechas[1].AC)
 			{
@@ -179,10 +179,28 @@ namespace Proyecto_ETS
 
 			int anoMayor = fecha2.Year;
 			int anoMenor = fecha1.Year;
-			if (fecha1.Year > fecha2.Year)
+			if (newFechas[0].AC)
+			{
+				anoMayor *= -1;
+			}
+			if (newFechas[1].AC)
+			{
+				anoMenor *= -1;
+			}
+
+			if (anoMenor > anoMayor)
 			{
 				anoMayor = fecha1.Year;
 				anoMenor = fecha2.Year;
+				if (newFechas[1].AC)
+				{
+					anoMayor *= -1;
+				}
+				if (newFechas[0].AC)
+				{
+					anoMenor *= -1;
+				}
+
 			}
 
 			int anos = 0;
@@ -190,16 +208,23 @@ namespace Proyecto_ETS
 			{
 				if (diffdays > 364)
 				{
-					if (!DateTime.IsLeapYear(vueltas))
+					if (vueltas != 0)
 					{
-						diffdays -= 365;
-						anos++;
+						if (!DateTime.IsLeapYear(Math.Abs(vueltas)))
+						{
+							diffdays -= 365;
+							anos++;
+						}
+						else
+						{
+							diffdays -= 366;
+							anos++;
+						}
 					}
-					else
-					{
-						diffdays -= 366;
-						anos++;
-					}
+				}
+				if (diffdays < 0)
+				{
+					diffdays = 0;
 				}
 			}
 			diffAnos[0] = anos;
@@ -228,10 +253,18 @@ namespace Proyecto_ETS
 
 			int anoMayor = fecha.Year;
 			int anoMenor = newFechas.Fecha.Year;
-			if (newFechas.Fecha.Year > fecha.Year)
+			if (newFechas.AC)
+			{
+				anoMenor *= -1;
+			}
+			if (newFechas.Fecha.Year < fecha.Year)
 			{
 				anoMayor = newFechas.Fecha.Year;
 				anoMenor = fecha.Year;
+				if (newFechas.AC)
+				{
+					anoMayor *= -1;
+				}
 			}
 
 			int anos = 0;
@@ -239,16 +272,23 @@ namespace Proyecto_ETS
 			{
 				if (diffdays > 364)
 				{
-					if (!DateTime.IsLeapYear(vueltas))
+					if (vueltas != 0)
 					{
-						diffdays -= 365;
-						anos++;
+						if (!DateTime.IsLeapYear(Math.Abs(vueltas)))
+						{
+							diffdays -= 365;
+							anos++;
+						}
+						else
+						{
+							diffdays -= 366;
+							anos++;
+						}
 					}
-					else
-					{
-						diffdays -= 366;
-						anos++;
-					}
+				}
+				if (diffdays < 0)
+				{
+					diffdays = 0;
 				}
 			}
 			diffActual1[0] = anos;

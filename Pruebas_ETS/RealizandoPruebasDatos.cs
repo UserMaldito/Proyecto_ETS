@@ -134,7 +134,22 @@ namespace Pruebas_ETS
 		[TestMethod]
 		[DataRow(14, 12, 2000, false, 14, 12, 2065, false, 65, 0)]			//2 fechas Después de Cristo
 		[DataRow(14, 12, 1964, true, 14, 12, 2022, true, 58, 0)]			//2 fechas Después de Cristo
-		[DataRow(14, 12, 2000, true, 14, 12, 2065, false, 4064, 330)]		//1 fecha Antes y Después de Cristo
-	}
+		[DataRow(14, 12, 2000, true, 14, 12, 2065, false, 4064, 330)]       //1 fecha Antes y Después de Cristo
+		public void ClaseDatosCalculodiferenciaPrueba(int diaUno, int mesUno, int anoUno, bool ACUno, int diaDos, int mesDos, int anoDos, bool ACDos, int anoEsperado, int diaEsperado)
+		{
+			//Arrange
+			Datos.Fechas[] fechas = new Datos.Fechas[2];
+			fechas[0].Fecha = new DateTime(anoUno, mesUno, diaUno);
+			fechas[0].AC = ACUno;
+			fechas[1].Fecha = new DateTime(anoDos, mesDos, diaDos);
+			fechas[1].AC = ACDos;
 
+			//Act
+			double[] numeroEsperado = Calculo.CalculoDiferenciaUnitTest(fechas);
+
+			//Assert
+			Assert.AreEqual(numeroEsperado[0], anoEsperado);
+			Assert.AreEqual(numeroEsperado[1], diaEsperado);
+		}
+	}
 }
